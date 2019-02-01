@@ -44,7 +44,10 @@ function! SyntaxCheckers_c_gcc_GetLocList() dict
         \     '%f:%l: %trror: %m,' .
         \     '%f:%l: %tarning: %m,'.
         \     '%f:%l: %m',
-        \ 'main_flags': '-x c -fsyntax-only',
+        \ 'main_flags':
+        \     '-x c -Wstrict-prototypes -Wall' .
+        \     ' -Wextra -Wformat -std=gnu99 -Wmissing-prototypes' .
+        \     ' -Wpointer-arith -Wundef -fsyntax-only',
         \ 'header_flags': '-x c',
         \ 'header_names': '\m\.h$' })
 endfunction
